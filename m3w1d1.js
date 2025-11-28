@@ -1,3 +1,5 @@
+//ESERCIZIO EXTRA 1
+
 function rimuovere() {
   let twitter = document.querySelector(".blog-sidebar .p-4:nth-of-type(3) .list-unstyled li:nth-of-type(2)");
   if (twitter) {
@@ -6,28 +8,26 @@ function rimuovere() {
 }
 rimuovere();
 
-function remove() {
-  let contLeggere = document.querySelector(".jumbotron a");
-  if (contLeggere) {
-    contLeggere.addEventListener("click", function (e) {
-      e.preventDefault("a");
-      let genitore = e.target.closest(".jumbotron");
-      if (genitore) {
-        genitore.remove();
-      }
-    });
-  }
-}
-remove();
+//ESERCIZIO EXTRA 2
 
-function gestisciAutori() {
-  let autori = document.querySelectorAll(".blog-post-meta a");
+let contLeggere = document.querySelectorAll(".stretched-link");
 
-  for (let i = 0; i < autori.length; i++) {
-    autori[i].addEventListener("mouseover", function (e) {
-      let nomeAutore = e.target.textContent;
-      alert("Autore del post : " + nomeAutore);
-    });
-  }
+for (let i = 0; i < contLeggere.length; i++) {
+  contLeggere[i].addEventListener("click", removePost);
 }
-gestisciAutori();
+
+function removePost(event) {
+  event.target.parentNode.parentNode.remove();
+}
+
+//ESERCIZIO EXTRA 3
+
+const autori = document.querySelectorAll(".blog-post-meta a");
+
+for (let i = 0; i < autori.length; i++) {
+  autori[i].addEventListener("mouseover", redAlert);
+}
+
+function redAlert(event) {
+  alert(event.target.textContent);
+}
